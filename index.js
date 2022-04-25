@@ -1,24 +1,8 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/students');
+const StudentModel = require('./model/studentModel')
 
-const studentSchema = new mongoose.Schema({
-    firstName : String,
-    surName : String,
-    address : {
-        type : mongoose.Types.ObjectId,
-        ref: 'address'
-    }
-})
 
-const addresSchema = new mongoose.Schema({
-    streetName : String,
-    streetNumber : String,
-    postCode : String,
-    city : String
-})
-
-const StudentModel = mongoose.model('Student' , studentSchema);
-const AddressModel = mongoose.model('address', addresSchema);
 
 const address = new AddressModel({
     streetName : "Joseph",
